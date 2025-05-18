@@ -4,28 +4,28 @@ import Icon from "@/components/ui/icon";
 
 const ActionButtons = () => {
   return (
-    <div className="flex flex-wrap gap-4 justify-center my-8">
-      <Button
-        className="bg-[#FF5D8F] hover:bg-[#FF3A76] text-white shadow-md transition-transform hover:scale-105"
-        size="lg"
+    <div className="flex flex-col sm:flex-row gap-4 justify-center max-w-3xl mx-auto">
+      <Button 
+        size="lg" 
+        className="bg-[#9B87F5] hover:bg-[#836BE0] text-white flex-1 gap-2"
       >
-        <Icon name="BookNew" className="mr-2" />
+        <Icon name="Star" className="h-5 w-5" />
         Смотреть новые
       </Button>
       
-      <Button
-        className="bg-[#9B87F5] hover:bg-[#836BE0] text-white shadow-md transition-transform hover:scale-105"
-        size="lg"
+      <Button 
+        size="lg" 
+        className="bg-[#FF9A3C] hover:bg-[#E58835] text-white flex-1 gap-2"
       >
-        <Icon name="Shuffle" className="mr-2" />
+        <Icon name="Shuffle" className="h-5 w-5" />
         Случайный комикс
       </Button>
       
-      <Button
-        className="bg-[#FFD23F] hover:bg-[#FFBF00] text-white shadow-md transition-transform hover:scale-105"
-        size="lg"
+      <Button 
+        size="lg" 
+        className="bg-[#FF5D8F] hover:bg-[#E54C7B] text-white flex-1 gap-2"
       >
-        <Icon name="Trophy" className="mr-2" />
+        <Icon name="TrendingUp" className="h-5 w-5" />
         Топ за неделю
       </Button>
     </div>
