@@ -1,14 +1,21 @@
-
 import { Button } from "@/components/ui/button";
-import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "@/components/ui/card";
-import { 
+import {
+  Card,
+  CardContent,
+  CardDescription,
+  CardFooter,
+  CardHeader,
+  CardTitle,
+} from "@/components/ui/card";
+import {
   DropdownMenu,
   DropdownMenuContent,
   DropdownMenuItem,
-  DropdownMenuTrigger
+  DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
 import Icon from "@/components/ui/icon";
 import { Badge } from "@/components/ui/badge";
+import { Link } from "react-router-dom";
 
 export interface ComicType {
   id: string;
@@ -26,13 +33,13 @@ const ComicCard = ({ comic }: ComicCardProps) => {
   return (
     <Card className="overflow-hidden transition-all duration-300 hover:shadow-lg hover:-translate-y-1 w-full max-w-sm">
       <div className="h-64 overflow-hidden">
-        <img 
-          src={comic.image} 
-          alt={comic.title} 
+        <img
+          src={comic.image}
+          alt={comic.title}
           className="w-full h-full object-cover transition-transform duration-500 hover:scale-105"
         />
       </div>
-      
+
       <CardHeader className="pb-2">
         <div className="flex justify-between items-start">
           <CardTitle className="text-xl font-bold">{comic.title}</CardTitle>
@@ -58,27 +65,33 @@ const ComicCard = ({ comic }: ComicCardProps) => {
             </DropdownMenuContent>
           </DropdownMenu>
         </div>
-        
+
         <div className="flex flex-wrap gap-1 mt-1">
           {comic.categories.map((category) => (
-            <Badge key={category} variant="secondary" className="text-xs bg-gray-100">
+            <Badge
+              key={category}
+              variant="secondary"
+              className="text-xs bg-gray-100"
+            >
               {category}
             </Badge>
           ))}
         </div>
       </CardHeader>
-      
+
       <CardContent>
         <CardDescription className="line-clamp-3 text-sm">
           {comic.description}
         </CardDescription>
       </CardContent>
-      
+
       <CardFooter>
-        <Button className="w-full bg-[#9B87F5] hover:bg-[#836BE0] text-white">
-          <Icon name="BookOpen" className="mr-2 h-4 w-4" />
-          Читать
-        </Button>
+        <Link to={`/read/${comic.id}`} className="w-full">
+          <Button className="w-full bg-[#9B87F5] hover:bg-[#836BE0] text-white">
+            <Icon name="BookOpen" className="mr-2 h-4 w-4" />
+            Читать
+          </Button>
+        </Link>
       </CardFooter>
     </Card>
   );
